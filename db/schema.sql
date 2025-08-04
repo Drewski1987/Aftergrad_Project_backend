@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT UNIQUE NOT NULL, 
+    password TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS pets CASCADE;
+
+CREATE TABLE pets (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    note TEXT NOT NULL,
+    imageURL TEXT,
+    user_id INTEGER NOT NULL REFERENCES users(id)
+);
+
+DROP TABLE IF EXISTS tasks CASCADE;
+
+CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY, 
+    title TEXT NOT NULL,
+    description TEXT NOT NULL, 
+    datetime DATE TIME NOT NULL
+    pet_id INTEGER NOT NULL REFERENCES pets(id)
+);
