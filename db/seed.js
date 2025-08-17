@@ -1,4 +1,7 @@
 import db from "./client.js";
+import { createUser } from "./queries/users.js";
+import {createPets} from "./queries/pets.js";
+import {createTasks} from "./queries/tasks.js";
 await db.connect();
 await seed();
 await db.end();

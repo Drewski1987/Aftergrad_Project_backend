@@ -22,6 +22,6 @@ CREATE TABLE tasks (
     id SERIAL PRIMARY KEY, 
     title TEXT NOT NULL,
     description TEXT NOT NULL, 
-    datetime DATE TIME NOT NULL
+    datetime DATE NOT NULL,
     pet_id INTEGER NOT NULL REFERENCES pets(id)
 );

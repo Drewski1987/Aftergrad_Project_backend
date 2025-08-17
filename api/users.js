@@ -28,9 +28,8 @@ router.post("/register", async(req, res)=>{
     }
     try{
         const hashedPassword = await bcrypt.hash(password, 5)
-        const result = await db.query(`INSERT INTO users (username, password) 
-            VALUES ($1, $2) RETURNING *;`, [username, hashedPassword]);
-            const newUser = result.rows[0]
+        const newUser = await createUser ({username, hashedPassword});
+            
             if(!newUser){
             return res.status(400).send("Can not create new user")
         };
