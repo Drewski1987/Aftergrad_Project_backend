@@ -7,6 +7,8 @@ export async function createPets({name, note, imageUrl, user_id}) {
     VALUES ($1, $2, $3, $4)
     RETURNING *;
     `;
+    const {rows:pet} = await db.query(sql, [name, note, imageUrl, user_id]);
+    return pet[0]
 }
 
 export async function getPets(){
