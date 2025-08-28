@@ -9,8 +9,9 @@ console.log("🌱 Database seeded.");
 
 async function seed() {
   // seed users
-  await createUser({ username: "JohnDoe", password: "abc123" });
-  await createUser({ username: "JaneDoe", password: "cba321" });
+  await createUser({ username: "JoeDoe", password: "abc123" });
+  await createUser({ username: "JackieDoe", password: "cba321" });
+  await createUser({ username: "Doe", password: "1234" });
 
   // seed pets
   await createPets({

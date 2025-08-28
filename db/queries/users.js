@@ -28,7 +28,7 @@ export async function loginUser ({username}) {
     SELECT * FROM users WHERE username = $1
     `;
     const {rows:user} = await db.query(sql, [username]);
-    return user[0];
+    return user;
 };
 
 // getUserbyId
@@ -38,7 +38,7 @@ const sql = `
 SELECT * FROM users WHERE id = $1
 `;
 const {rows:user} = await db.query(sql, [id]);
-return user[0];
+return user;
 };
 
 // updateUser
@@ -51,7 +51,7 @@ export async function updateUser({id, username, password}){
     RETURNING *;
     `;
     const {rows:user} = await db.query(sql,[username, password, id]);
-    return user[0]
+    return user;
 }
 
 //  getUserInfo
@@ -61,7 +61,7 @@ export async function getUserInfo({username}){
     SELECT id FROM users WHERE username = $1
     `;
     const {rows:user} = await db.query(sql, [username]);
-    return user[0]
+    return user[0];
 }
 
 //  Delete user
@@ -72,5 +72,5 @@ export async function deleteUser(id){
     RETURNING *;
     `;
     const {rows:user} = await db.query(sql, [id]);
-    return user[0]
+    return user[0];
 }

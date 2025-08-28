@@ -19,13 +19,13 @@ export async function getPets({user_id}){
     return pets[0];
 }
 
-// export async function getPet(id){
-//     const sql = `
-//     SELECT * FROM pets WHERE id = $1
-//     `;
-//     const {rows: pet} = await db.query(sql, [id])
-//     return pet[0];
-// }
+export async function getPet(id){
+    const sql = `
+    SELECT * FROM pets WHERE id = $1
+    `;
+    const {rows: pet} = await db.query(sql, [id])
+    return pet[0];
+}
 
 export async function updatePet ({name, note, imageUrl, user_id}){
     const sql = `
