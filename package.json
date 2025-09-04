@@ -20,8 +20,8 @@
     "dev": "node --watch --env-file=.env server.js",
     "db:schema": "psql -d aftergrad_project_backend -f db/schema.sql",
     "db:seed": "node --env-file=.env db/seed.js",
-    "db:reset": "npm run db:schema && npm run db:seed",
-    "start": "node server.js"
+    "db:reset": "npm run db:schema && npm run db:seed"
+   
   },
   "author": "",
   "license": "ISC",

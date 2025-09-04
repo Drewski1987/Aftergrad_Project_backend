@@ -3,8 +3,8 @@ const router = express.Router();
 export default router;
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { getUsers, createUser } from "../db/queries/users";
-import db from "../../db/client";
+import { getUsers, createUser, loginUser } from "../db/queries/users.js";
+
 
 
 // validate ID as a positve integer
@@ -47,7 +47,7 @@ router.post("/login", async(req,res,next)=>{
     if (!username || !password){
         return res.status(400).send("Incorrect login info")
     }
-    const correctUserInfo = await getUser ({username})
+    const correctUserInfo = await loginUser ({username})
     const correctMatch = await bcrypt.compare(password, correctUserInfo.password)
 
     if(!correctMatch){
